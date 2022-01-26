@@ -19,6 +19,200 @@
 
 <body class="bg-home">
 
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Heebo:400,700|Open+Sans:400,700');
+
+    :root {
+        --color: #3c3163;
+        --transition-time: 0.5s;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: 'Open Sans';
+        background: #fafafa;
+    }
+
+    a {
+        color: inherit;
+    }
+
+    .cards-wrapper {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 4rem;
+        padding: 4rem;
+        margin: 0 auto;
+        width: max-content;
+    }
+
+    .card {
+        font-family: 'Heebo';
+        --bg-filter-opacity: 0.5;
+        background-image: linear-gradient(rgba(0, 0, 0, var(--bg-filter-opacity)), rgba(0, 0, 0, var(--bg-filter-opacity))), var(--bg-img);
+        height: 20em;
+        width: 15em;
+        font-size: 1.5em;
+        color: white;
+        border-radius: 1em;
+        padding: 1em;
+        /*margin: 2em;*/
+        display: flex;
+        align-items: flex-end;
+        background-size: cover;
+        background-position: center;
+        box-shadow: 0 0 5em -1em black;
+        transition: all, var(--transition-time);
+        position: relative;
+        overflow: hidden;
+        border: 10px solid #ccc;
+        text-decoration: none;
+    }
+
+    .card:hover {
+        transform: rotate(0);
+    }
+
+    .card h1 {
+        margin: 0;
+        font-size: 1.5em;
+        line-height: 1.2em;
+    }
+
+    .card p {
+        font-size: 0.75em;
+        font-family: 'Open Sans';
+        margin-top: 0.5em;
+        line-height: 2em;
+    }
+
+    .card .tags {
+        display: flex;
+    }
+
+    .card .tags .tag {
+        font-size: 0.75em;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 0.3rem;
+        padding: 0 0.5em;
+        margin-right: 0.5em;
+        line-height: 1.5em;
+        transition: all, var(--transition-time);
+    }
+
+    .card:hover .tags .tag {
+        background: var(--color);
+        color: white;
+    }
+
+    .card .date {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 0.75em;
+        padding: 1em;
+        line-height: 1em;
+        opacity: .8;
+    }
+
+    .card:before, .card:after {
+        content: '';
+        transform: scale(0);
+        transform-origin: top left;
+        border-radius: 50%;
+        position: absolute;
+        left: -50%;
+        top: -50%;
+        z-index: -5;
+        transition: all, var(--transition-time);
+        transition-timing-function: ease-in-out;
+    }
+
+    .card:before {
+        background: #ddd;
+        width: 250%;
+        height: 250%;
+    }
+
+    .card:after {
+        background: white;
+        width: 200%;
+        height: 200%;
+    }
+
+    .card:hover {
+        color: var(--color);
+    }
+
+    .card:hover:before, .card:hover:after {
+        transform: scale(1);
+    }
+
+    .card-grid-space .num {
+        font-size: 3em;
+        margin-bottom: 1.2rem;
+        margin-left: 1rem;
+    }
+
+
+    /* MEDIA QUERIES */
+    @media screen and (max-width: 1285px) {
+        .cards-wrapper {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @media screen and (max-width: 900px) {
+        .cards-wrapper {
+            grid-template-columns: 1fr;
+        }
+
+        .card-grid-space .num {
+        / margin-left: 0;
+        / text-align: center;
+        }
+    }
+
+    @media screen and (max-width: 500px) {
+        .cards-wrapper {
+            padding: 4rem 2rem;
+        }
+
+        .card {
+            max-width: calc(100vw - 4rem);
+        }
+    }
+
+    @media screen and (max-width: 450px) {
+        .info {
+            display: block;
+            text-align: center;
+        }
+
+        .info h1 {
+            margin: 0;
+        }
+    }
+
+    .frontface {
+        background-image: url("backdrop.jpg");
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .bg-home {
+        background-color: #0F4B56;
+    }
+</style>
+
+
 <header>
     <!--Navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -72,18 +266,6 @@
 </header>
 
 <main role="main" class="frontface">
-    <style>
-        .frontface{
-            background-image: url("backdrop.jpg");
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
-        .bg-home{
-            background-color: #0F4B56;
-        }
-    </style>
-
-
     <section class="jumbotron text-center bg-transparent">
         <div class="container">
             <h1 class="jumbotron-heading text-white">11:40 AM </h1>
@@ -95,177 +277,47 @@
         </div>
     </section>
 
-    <div class="face py-5">
-        <div class="container">
-
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top"
-                             data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"
-                             alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                </div>
-                                <small class="text-muted">9 mins</small>
-                            </div>
-                        </div>
+    <section class="cards-wrapper">
+        <div class="card-grid-space">
+            <a class="card" href="https://codetheweb.blog/2017/10/06/html-syntax/"
+               style="--bg-img: url('images/blog 3.jpg')">
+                <div>
+                    <h1>HTML Syntax</h1>
+                    <p>The syntax of a language is how it works. How to actually write it. Learn HTML syntax…</p>
+                    <div class="date">6 Oct 2017</div>
+                    <div class="tags">
+                        <div class="tag">HTML</div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top"
-                             data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"
-                             alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                </div>
-                                <small class="text-muted">9 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top"
-                             data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"
-                             alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                </div>
-                                <small class="text-muted">9 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top"
-                             data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"
-                             alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                </div>
-                                <small class="text-muted">9 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top"
-                             data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"
-                             alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                </div>
-                                <small class="text-muted">9 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top"
-                             data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"
-                             alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                </div>
-                                <small class="text-muted">9 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top"
-                             data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"
-                             alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                </div>
-                                <small class="text-muted">9 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top"
-                             data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"
-                             alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                </div>
-                                <small class="text-muted">9 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top"
-                             data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"
-                             alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                </div>
-                                <small class="text-muted">9 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </a>
         </div>
-    </div>
+        <div class="card-grid-space">
+            <a class="card" href="https://codetheweb.blog/2017/10/09/basic-types-of-html-tags/"
+               style="--bg-img: url('images/blog 2.jpg')">
+                <div>
+                    <h1>Basic types of HTML tags</h1>
+                    <p>Learn about some of the most common HTML tags…</p>
+                    <div class="date">9 Oct 2017</div>
+                    <div class="tags">
+                        <div class="tag">HTML</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="card-grid-space">
+            <a class="card" href="https://codetheweb.blog/2017/10/14/links-images-about-file-paths/"
+               style="--bg-img: url('images/blog 1.jpg')">
+                <div>
+                    <h1>Links, images and about file paths</h1>
+                    <p>Learn how to use links and images along with file paths…</p>
+                    <div class="date">14 Oct 2017</div>
+                    <div class="tags">
+                        <div class="tag">HTML</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
 
 </main>
 
