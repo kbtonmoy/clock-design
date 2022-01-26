@@ -7,24 +7,21 @@
     <meta name="author" content="">
     <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
 
-    <title>Album example for Bootstrap</title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/album/">
+    <title>Clock Home Design</title>
 
     <!-- Bootstrap core CSS -->
     <!-- CSS only -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
 
     <!-- Custom styles for this template -->
-    <link href="album.css" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="bg-home">
 
 <header>
     <!--Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-light white">
+    <nav class="navbar navbar-expand-lg navbar-dark">
 
         <div class="container">
 
@@ -52,7 +49,8 @@
 
                 <!-- Navbar brand -->
                 <a class="navbar-brand px-lg-4 mr-0" href="#">
-                    <img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" height="30" alt="">
+                    <img src="https://www.pinclipart.com/picdir/big/529-5290605_inter-milan-logo-png-clipart-png-download-circle.png"
+                         height="40" alt="">
                 </a>
 
                 <!-- Links -->
@@ -73,21 +71,31 @@
     <!--/.Navbar-->
 </header>
 
-<main role="main">
+<main role="main" class="frontface">
+    <style>
+        .frontface{
+            background-image: url("backdrop.jpg");
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        .bg-home{
+            background-color: #0F4B56;
+        }
+    </style>
 
-    <section class="jumbotron text-center">
+
+    <section class="jumbotron text-center bg-transparent">
         <div class="container">
-            <h1 class="jumbotron-heading">Album example</h1>
-            <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator,
-                etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+            <h1 class="jumbotron-heading text-white">11:40 AM </h1>
+            <p class="lead text-muted"></p>
             <p>
-                <a href="#" class="btn btn-primary my-2">Main call to action</a>
-                <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+                <a href="#" class="btn btn-primary my-2">Set Timer</a>
+                <a href="#" class="btn btn-secondary my-2">Set Action</a>
             </p>
         </div>
     </section>
 
-    <div class="album py-5 bg-light">
+    <div class="face py-5">
         <div class="container">
 
             <div class="row">
@@ -275,15 +283,11 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+<script src="vendor/jquery/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
